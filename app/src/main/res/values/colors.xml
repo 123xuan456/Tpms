@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="common_top_bar_blue">#ff232228</color>
+    <color name="common_normal_back">#ff2f2e33</color>
+    <color name="common_select_back">#ff302f34</color>
+    <color name="common_select_back2">#ff22ab70</color>
+    <color name="common_select_back3">#ff22ab70</color>
+    <color name="common_select_back4">#ff201f24</color>
+    <color name="common_select_back5">#ff0079fe</color>
+    <color name="common_select_back6">#ff8e8e8e</color>
+    <color name="common_select_back7">#ff7b140b</color>
+    <color name="common_select_back8">#33cccccc</color>
+</resources>

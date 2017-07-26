@@ -51,8 +51,9 @@ public class BluetoothLeService extends Service {
 	private BluetoothAdapter mBluetoothAdapter;
 	private String mBluetoothDeviceAddress;
 	//发现服务读写设备等操作都是通过该对象
-	private BluetoothGatt mBluetoothGatt;
+		private BluetoothGatt mBluetoothGatt;
 	private int mConnectionState = STATE_DISCONNECTED;
+
 
 	private static final int STATE_DISCONNECTED = 0;
 	private static final int STATE_CONNECTING = 1;
@@ -79,6 +80,14 @@ public class BluetoothLeService extends Service {
 				int newState) {
 			String intentAction;
 			System.out.println("=======status:" + status);
+			//不确定因素导致连接失败。不确定因素可能为信号太弱等
+			if (status==0){
+				gatt.connect();
+			}else {
+				//由于协议栈原因导致连接建立失败。所以清除掉连接后重新建立连接。
+				gatt.close();
+				connect(mBluetoothDeviceAddress);
+			}
 			if (newState == BluetoothProfile.STATE_CONNECTED) {
 				intentAction = ACTION_GATT_CONNECTED;
 				mConnectionState = STATE_CONNECTED;
@@ -98,6 +107,8 @@ public class BluetoothLeService extends Service {
 				broadcastUpdate(intentAction);
 			}
 		}
+
+
 
 		@Override  //当设备是否找到服务时，会回调该函数
 		public void onServicesDiscovered(BluetoothGatt gatt, int status) {
@@ -143,6 +154,7 @@ public class BluetoothLeService extends Service {
 			System.out.println("--------write success----- status:" + status);
 		};
 	};
+
 
 	/**
 	 * 连接状态
@@ -287,6 +299,9 @@ public class BluetoothLeService extends Service {
 				&& mBluetoothGatt != null) {
 			Log.d(TAG,
 					"尝试使用现有的mBluetoothGatt来连接.");
+			//先停止搜索
+			mBluetoothAdapter.cancelDiscovery();
+
 			if (mBluetoothGatt.connect()) {
 				mConnectionState = STATE_CONNECTING;
 				return true;

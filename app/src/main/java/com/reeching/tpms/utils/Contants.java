@@ -21,7 +21,7 @@ public class Contants {
     public static final String DATAUNIT = "dataunit";
     public static final String DEVICENAME = "TPMS";
     public static final String DEVICES = "devices";
-    public static String HEART_RATE_MEASUREMENT = "0000C004-0000-1000-8000-00805f9b34fb";//蓝牙串口服务
+    public static String HEART_RATE_MEASUREMENT = "00001101-0000-1000-8000-00805f9b34fb";//蓝牙串口服务
     public static final String PHONENUBER = "phonenumber";
     public static final String QUERYID = "FC02D52B";
     public static final String QUERYSET = "FC02C53B";

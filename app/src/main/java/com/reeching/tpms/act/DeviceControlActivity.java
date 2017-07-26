@@ -123,8 +123,12 @@ public class DeviceControlActivity extends Activity
                 displayData(intent
                         .getStringExtra(BluetoothLeService.EXTRA_DATA));
             }
+
+
+
         }
     };
+
 
     // If a given GATT characteristic is selected, check for supported features.
     // This sample

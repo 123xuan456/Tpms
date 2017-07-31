@@ -7,7 +7,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 
@@ -60,11 +59,11 @@ public abstract class OtherBaseActivity extends Activity
     protected void onCreate(Bundle paramBundle)
     {
         super.onCreate(paramBundle);
-        IntentFilter localIntentFilter = new IntentFilter();
-        localIntentFilter.addAction("com.reeching.tpms.setting_change");//设置改变参数时
-        localIntentFilter.addAction("com.reeching.tpms.noconnection");//没有连接
-        localIntentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-        registerReceiver(this.settingreceiver, localIntentFilter);
+//        IntentFilter localIntentFilter = new IntentFilter();
+//        localIntentFilter.addAction("com.reeching.tpms.setting_change");//设置改变参数时
+//        localIntentFilter.addAction("com.reeching.tpms.noconnection");//没有连接
+//        localIntentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
+//        registerReceiver(this.settingreceiver, localIntentFilter);
     }
 
     protected void onDestroy()
@@ -80,8 +79,8 @@ public abstract class OtherBaseActivity extends Activity
     protected void onResume()
     {
         super.onResume();
-        if (this.mNotification != null)
-            this.mNotification.cancelNotification();
+//        if (this.mNotification != null)
+//            this.mNotification.cancelNotification();
     }
 
     protected abstract void onSettingChange();

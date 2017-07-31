@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@+id/setting_content" android:background="@color/common_select_back" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@+id/setting_title">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <RelativeLayout android:orientation="vertical" android:id="@+id/lunzik_rl" android:paddingLeft="@dimen/dimen1" android:paddingTop="@dimen/dimen1" android:paddingBottom="@dimen/dimen2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="50.0sp" android:textColor="@android:color/white" android:id="@+id/barvalue1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" android:includeFontPadding="false" />
+                    <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:id="@+id/unittaiya1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bar" android:layout_toRightOf="@+id/barvalue1" />
+                </RelativeLayout>
+                <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+                    <TextView android:textSize="40.0sp" android:textColor="@android:color/white" android:id="@+id/tempra1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:id="@+id/unittemp1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="°C" android:layout_toRightOf="@+id/tempra1" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout android:orientation="vertical"
+                android:paddingTop="@dimen/dimen1"
+                android:paddingRight="@dimen/dimen1"
+                android:paddingBottom="@dimen/dimen2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0">
+                <ImageView android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/left_top_tire_abnormal3x" />
+            </RelativeLayout>
+        </LinearLayout>
+        <RelativeLayout android:id="@+id/set_rl" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <com.reeching.tpms.view.SeekView android:id="@+id/seekimage" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout android:id="@+id/setting_title" android:background="@color/common_top_bar_blue" android:layout_width="fill_parent" android:layout_height="@dimen/height_top_bar" android:layout_alignParentTop="true">
+        <LinearLayout android:id="@+id/exit" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="9.0dip" android:checked="true" android:src="@drawable/check_back_btn" android:scaleType="centerInside" android:onClick="viewexitClick" />
+        </LinearLayout>
+        <EditText android:textSize="20.0sp" android:textColor="@android:color/white" android:id="@+id/title" android:background="@null" android:focusable="false" android:scrollbars="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/carlunzi1" android:singleLine="false" android:maxLength="30" android:editable="false" android:layout_centerInParent="true" />
+    </RelativeLayout>
+</RelativeLayout>

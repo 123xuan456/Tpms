@@ -31,11 +31,12 @@ import java.util.Random;
 
 /**
  * Created by 绍轩 on 2017/7/21.
+ * 设备信息
  */
 
 public class DeviceControlActivity extends Activity
 
-    {
+{
     private final static String TAG = DeviceControlActivity.class
             .getSimpleName();
 
@@ -55,11 +56,11 @@ public class DeviceControlActivity extends Activity
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
 
-        /**
-         * ServiceConnection代表与服务的连接，它只有两个方法，
-         * 与服务器端交互的接口方法 绑定服务的时候被回调，在这个方法获取绑定Service传递过来的IBinder对象，
-         * 通过这个IBinder对象，实现宿主和Service的交互。
-         */
+    /**
+     * ServiceConnection代表与服务的连接，它只有两个方法，
+     * 与服务器端交互的接口方法 绑定服务的时候被回调，在这个方法获取绑定Service传递过来的IBinder对象，
+     * 通过这个IBinder对象，实现宿主和Service的交互。
+     */
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
         /**
          * 系统会调用该方法以传递服务的　onBind() 方法返回的 IBinder。
@@ -82,22 +83,22 @@ public class DeviceControlActivity extends Activity
             //在成功启动时自动连接到设备
             mBluetoothLeService.connect(mDeviceAddress);
         }
-            /**
-             * 当取消绑定的时候被回调。但正常情况下是不被调用的，它的调用时机是当Service服务被意外销毁时，
-             * 例如内存的资源不足时这个方法才被自动调用。
-             * 注意:当客户端取消绑定时，系统“绝对不会”调用该方法
-             */
+        /**
+         * 当取消绑定的时候被回调。但正常情况下是不被调用的，它的调用时机是当Service服务被意外销毁时，
+         * 例如内存的资源不足时这个方法才被自动调用。
+         * 注意:当客户端取消绑定时，系统“绝对不会”调用该方法
+         */
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
             mBluetoothLeService = null;
         }
     };
 
-    // Handles various events fired by the Service.
-    // ACTION_GATT_CONNECTED: 连接到服务器
-    // ACTION_GATT_DISCONNECTED: 断开服务器.
-    // ACTION_GATT_SERVICES_DISCOVERED: 发现 GATT services.
-    // ACTION_DATA_AVAILABLE: 从设备接收数据
+    // 通过服务控制不同的事件
+    // ACTION_GATT_CONNECTED: 连接到GATT服务端
+    // ACTION_GATT_DISCONNECTED: 未连接GATT服务端.
+    // ACTION_GATT_SERVICES_DISCOVERED: 未发现GATT服务.
+    // ACTION_DATA_AVAILABLE: 接受来自设备的数据，可以通过读或通知操作获得。
     private final BroadcastReceiver mGattUpdateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -120,6 +121,7 @@ public class DeviceControlActivity extends Activity
                 displayGattServices(mBluetoothLeService
                         .getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+
                 displayData(intent
                         .getStringExtra(BluetoothLeService.EXTRA_DATA));
             }
@@ -267,7 +269,7 @@ public class DeviceControlActivity extends Activity
         registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
         if (mBluetoothLeService != null) {
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "连接请求结果=" + result);
+            Log.d(TAG, "连接结果=" + result);
         }
     }
 
@@ -322,10 +324,10 @@ public class DeviceControlActivity extends Activity
         });
     }
 
-        /**
-         *
-         * @param data utf-8
-         */
+    /**
+     *
+     * @param data utf-8
+     */
     private void displayData(String data) {
         if (data != null) {
             mDataField.setText(data);

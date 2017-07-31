@@ -1,19 +1,389 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.reeching.tpms.act.HomeActivity">
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout 
+        android:orientation="vertical" 
+        android:id="@+id/setting_content" 
+        android:background="@color/common_select_back"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_below="@+id/setting_title">
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0">
+                <RelativeLayout android:id="@+id/rel1"
+                    android:paddingLeft="@dimen/dimen3"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0">
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen6"
+                        android:src="@drawable/battery_full3x" />
+                    <com.reeching.tpms.view.BatteryView
+                        android:id="@+id/battery_topmenu"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50.0dip"
+                        android:src="@drawable/battery_small3x_white" />
+                    <RelativeLayout
+                        android:orientation="vertical"
+                        android:id="@+id/home_leftfont_rl"
+                        android:paddingLeft="@dimen/dimen1"
+                        android:paddingTop="@dimen/dimen1"
+                        android:paddingBottom="@dimen/dimen2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imageView1"
+                        android:layout_alignParentBottom="true">
+                        <RelativeLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textSize="50.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/barvalue1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:includeFontPadding="false" />
+                            <TextView
+                                android:textSize="13.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/unittaiya1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bar"
+                                android:layout_toRightOf="@+id/barvalue1" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true">
+                            <TextView
+                                android:textSize="40.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/tempra1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--" />
+                            <TextView
+                                android:textSize="13.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/unittemp1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="°C"
+                                android:layout_toRightOf="@+id/tempra1" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+                <View
+                    android:background="@color/common_select_back8"
+                    android:layout_width="1.0dip"
+                    android:layout_height="fill_parent" />
+                <RelativeLayout
+                    android:id="@+id/rel2"
+                    android:paddingRight="@dimen/dimen3"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0">
+                    <ImageView android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen6"
+                        android:src="@drawable/battery_full3x"
+                        android:layout_alignParentRight="true" />
+                    <RelativeLayout
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:id="@+id/home_rightfont_rl"
+                        android:paddingTop="@dimen/dimen1"
+                        android:paddingRight="@dimen/dimen1"
+                        android:paddingBottom="@dimen/dimen2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imageView2"
+                        android:layout_alignParentBottom="true">
+                        <RelativeLayout
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textSize="50.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/barvalue2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:includeFontPadding="false" />
+                            <TextView
+                                android:textSize="13.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/unittaiya2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bar"
+                                android:layout_toRightOf="@+id/barvalue2" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true">
+                            <TextView
+                                android:textSize="40.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/tempra2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--" />
+                            <TextView
+                                android:textSize="13.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/unittemp2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="°C"
+                                android:layout_toRightOf="@+id/tempra2" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+            <View
+                android:background="@color/common_select_back8"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0">
+                <RelativeLayout
+                    android:id="@+id/rel3"
+                    android:paddingLeft="@dimen/dimen3"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0">
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen6"
+                        android:src="@drawable/battery_full3x" />
+                    <RelativeLayout
+                        android:orientation="vertical"
+                        android:id="@+id/home_leftrear_rl"
+                        android:paddingLeft="@dimen/dimen1"
+                        android:paddingTop="@dimen/dimen2"
+                        android:paddingBottom="@dimen/dimen1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imageView3"
+                        android:layout_alignParentBottom="true">
+                        <RelativeLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true">
+                            <TextView
+                                android:textSize="50.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/barvalue3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:includeFontPadding="false" />
+                            <TextView
+                                android:textSize="13.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/unittaiya3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bar"
+                                android:layout_toRightOf="@+id/barvalue3" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:textSize="40.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/tempra3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--" />
+                            <TextView
+                                android:textSize="13.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/unittemp3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="°C"
+                                android:layout_toRightOf="@+id/tempra3" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+                <View
+                    android:background="@color/common_select_back8"
+                    android:layout_width="1.0dip"
+                    android:layout_height="fill_parent" />
+                <RelativeLayout
+                    android:id="@+id/rel4"
+                    android:paddingRight="@dimen/dimen3"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0">
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen6"
+                        android:src="@drawable/battery_full3x"
+                        android:layout_alignParentRight="true" />
+                    <RelativeLayout
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:id="@+id/home_rightrear_rl"
+                        android:paddingTop="@dimen/dimen2"
+                        android:paddingRight="@dimen/dimen1"
+                        android:paddingBottom="@dimen/dimen1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imageView4"
+                        android:layout_alignParentBottom="true">
+                        <RelativeLayout
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true">
+                            <TextView
+                                android:textSize="50.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/barvalue4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--"
+                                android:includeFontPadding="false" />
+                            <TextView
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:onClick="tvClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+                                android:textSize="13.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/unittaiya4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bar"
+                                android:layout_toRightOf="@+id/barvalue4" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:gravity="right"
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true">
+                            <TextView
+                                android:textSize="40.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/tempra4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="--" />
+                            <TextView
+                                android:textSize="13.0sp"
+                                android:textColor="@android:color/white"
+                                android:id="@+id/unittemp4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="°C"
+                                android:layout_toRightOf="@+id/tempra4" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/carico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selectcar"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/setting_title"
+        android:background="@color/common_top_bar_blue"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:layout_alignParentTop="true">
+        <LinearLayout
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/exitbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9.0dip"
+                android:src="@drawable/check_menu_btn"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/voicesetting"
+            android:layout_width="45.0dip"
+            android:layout_height="fill_parent"
+            android:layout_toLeftOf="@+id/setting">
+            <CheckBox
+                android:layout_gravity="center_vertical"
+                android:id="@+id/settingvoicebtn"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9.0dip"
+                android:checked="true"
+                android:button="@drawable/check_voice_btn"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/setting"
+            android:layout_width="45.0dip"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/settingbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9.0dip"
+                android:src="@drawable/check_set_btn"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+        <EditText
+            android:textSize="20.0sp"
+            android:textColor="@android:color/white"
+            android:id="@+id/title"
+            android:background="@null"
+            android:focusable="false"
+            android:scrollbars="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu2"
+            android:singleLine="false"
+            android:maxLength="30"
+            android:editable="false"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+</RelativeLayout>

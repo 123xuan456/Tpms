@@ -81,14 +81,14 @@ public class BluetoothLeService extends Service {
 			String intentAction;
 			System.out.println("=======status:" + status);
 			//不确定因素导致连接失败。不确定因素可能为信号太弱等
-			if (status==0){
-				gatt.connect();
-			}else {
-				//由于协议栈原因导致连接建立失败。所以清除掉连接后重新建立连接。
-				gatt.close();
-				connect(mBluetoothDeviceAddress);
-			}
-			if (newState == BluetoothProfile.STATE_CONNECTED) {
+//			if (status==0){
+//			gatt.connect();
+//			}else {
+//				//由于协议栈原因导致连接建立失败。所以清除掉连接后重新建立连接。
+//				gatt.close();
+//				connect(mBluetoothDeviceAddress);
+//			}
+			if (newState == BluetoothProfile.STATE_CONNECTED) {//蓝牙设备已经连接
 				intentAction = ACTION_GATT_CONNECTED;
 				mConnectionState = STATE_CONNECTED;
 				//连接成功
@@ -99,7 +99,7 @@ public class BluetoothLeService extends Service {
 				Log.i(TAG, "启动服务发现:"
 						+ mBluetoothGatt.discoverServices());
 
-			} else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
+			} else if (newState == BluetoothProfile.STATE_DISCONNECTED) {//蓝牙设备无法连接
 				intentAction = ACTION_GATT_DISCONNECTED;
 				mConnectionState = STATE_DISCONNECTED;
 				Log.i(TAG, "连接失败.");
@@ -108,12 +108,12 @@ public class BluetoothLeService extends Service {
 			}
 		}
 
-
-
-		@Override  //当设备是否找到服务时，会回调该函数
+		@Override   // 发现新服务端
 		public void onServicesDiscovered(BluetoothGatt gatt, int status) {
 			if (status == BluetoothGatt.GATT_SUCCESS) {   //找到服务了
 				//在这里可以对服务进行解析，寻找到你需要的服务
+				findService(gatt.getServices(), status);
+				return;
 			} else {
 				Log.w(TAG, "onServicesDiscovered received: " + status);
 			}
@@ -154,6 +154,13 @@ public class BluetoothLeService extends Service {
 			System.out.println("--------write success----- status:" + status);
 		};
 	};
+
+	public void findService(List<BluetoothGattService> services, int status){
+
+
+
+	}
+
 
 
 	/**
